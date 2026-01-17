@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE HERITAGE | Premium Grooming & Barbering</title>
+    <meta name="description" content="Experience the pinnacle of men's grooming. From traditional straight-razor shaves to modern precision fades.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Prata&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            base: '#0F110C', // Deep Obsidian
+                            accent: '#1A2F23', // Heritage Green
+                            gold: '#C5A059',
+                            stone: '#F4F2F0',
+                            clay: '#E5E1DD'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        display: ['Prata', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        ultra: '0.2em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @layer base {
+            body { @apply bg-brand-base text-brand-stone antialiased overflow-x-hidden; }
+            section { @apply min-h-screen relative flex flex-col justify-center py-24 px-6 md:px-20; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0F110C; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism */
+        .glass-nav {
+            background: rgba(15, 17, 12, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        /* Parallax Image Container */
+        .parallax-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .parallax-img {
+            transition: transform 0.1s ease-out;
+            scale: 1.1;
+        }
+
+        /* Magnetic Button */
+        .magnetic-wrap { display: inline-block; }
+        
+        /* Noise Overlay */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BarberShop",
+      "name": "The Heritage Luxury Grooming",
+      "image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Savile Row",
+        "addressLocality": "London",
+        "postalCode": "W1S 3PR",
+        "addressCountry": "UK"
+      },
+      "openingHours": "Mo-Sa 09:00-20:00"
+    }
+    </script>
+</head>
+<body>
+    <div class="noise"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav px-6 md:px-12 py-4 flex justify-between items-center">
+        <div class="text-xl md:text-2xl font-display tracking-ultra text-brand-gold">HERITAGE</div>
+        
+        <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-ultra font-medium">
+            <a href="#philosophy" class="hover:text-brand-gold transition-colors">Philosophy</a>
+            <a href="#services" class="hover:text-brand-gold transition-colors">The Menu</a>
+            <a href="#collection" class="hover:text-brand-gold transition-colors">Artistry</a>
+            <a href="#contact" class="hover:text-brand-gold transition-colors">Book Now</a>
+        </div>
+
+        <button class="md:hidden text-brand-gold">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section id="hero" class="pt-32">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80" 
+                     class="w-full h-full object-cover opacity-30 grayscale" alt="Barber shop interior">
+                <div class="absolute inset-0 bg-gradient-to-b from-brand-base via-transparent to-brand-base"></div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl">
+                <p class="reveal text-brand-gold uppercase tracking-[0.4em] text-xs mb-6">Established 1896 — London</p>
+                <h1 class="reveal font-display text-5xl md:text-8xl leading-tight mb-8">
+                    The Art of <br>
+                    <span class="italic font-serif text-brand-gold">Refinement.</span>
+                </h1>
+                <p class="reveal max-w-md text-brand-stone/70 leading-relaxed mb-10 font-light tracking-wide">
+                    More than a haircut. A curated experience blending century-old traditions with modern architectural precision.
+                </p>
+                <div class="reveal magnetic-wrap">
+                    <a href="#contact" class="magnetic-item inline-block border border-brand-gold px-10 py-5 text-[10px] uppercase tracking-ultra hover:bg-brand-gold hover:text-brand-base transition-all duration-500">
+                        Reserve Your Chair
+                    </a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 right-10 hidden lg:block reveal">
+                <div class="flex items-center space-x-4 rotate-90 origin-right">
+                    <span class="text-[10px] uppercase tracking-ultra opacity-40">Scroll to explore</span>
+                    <div class="w-20 h-[1px] bg-brand-gold/30"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="bg-brand-stone text-brand-base">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="parallax-wrap aspect-[3/4] reveal">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80" 
+                         class="parallax-img w-full h-full object-cover" alt="Barber at work">
+                </div>
+                <div class="reveal">
+                    <h2 class="font-display text-4xl md:text-6xl mb-8">Quiet Luxury, <br>Personalized.</h2>
+                    <p class="text-lg leading-relaxed mb-6 font-serif italic text-brand-accent">"Every man deserves a sanctuary where time slows down."</p>
+                    <p class="text-brand-base/70 leading-relaxed mb-8">
+                        At Heritage, we eschew the loud for the meaningful. Our barbers are artisans of the blade, trained in the nuances of facial geometry and hair texture. We use only cold-pressed botanical oils and bespoke steel, ensuring every stroke is an act of care.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 py-8 border-t border-brand-clay">
+                        <div>
+                            <span class="block text-2xl font-display text-brand-gold">129+</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-60">Years of Heritage</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-display text-brand-gold">22k</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-60">Global Five-Star Reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-[#141612]">
+            <div class="max-w-4xl mx-auto w-full reveal">
+                <div class="text-center mb-20">
+                    <h2 class="font-display text-4xl md:text-5xl mb-4">The Service Menu</h2>
+                    <div class="w-12 h-[1px] bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="group flex flex-col md:flex-row justify-between items-start md:items-end border-b border-brand-gold/10 pb-8 hover:border-brand-gold transition-colors duration-500">
+                        <div class="max-w-md">
+                            <h3 class="font-display text-2xl mb-2 group-hover:text-brand-gold transition-colors">The Royal Signature</h3>
+                            <p class="text-sm text-brand-stone/50 font-light">Haircut, consultation, scalp massage, and hot towel finish.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 text-right">
+                            <span class="text-brand-gold font-display text-xl">$85</span>
+                            <span class="block text-[8px] uppercase tracking-ultra opacity-40">60 Minutes</span>
+                        </div>
+                    </div>
+
+                    <div class="group flex flex-col md:flex-row justify-between items-start md:items-end border-b border-brand-gold/10 pb-8 hover:border-brand-gold transition-colors duration-500">
+                        <div class="max-w-md">
+                            <h3 class="font-display text-2xl mb-2 group-hover:text-brand-gold transition-colors">Traditional Blade Shave</h3>
+                            <p class="text-sm text-brand-stone/50 font-light">Precision straight-razor shave with pre-shave oil and cold-stone therapy.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 text-right">
+                            <span class="text-brand-gold font-display text-xl">$65</span>
+                            <span class="block text-[8px] uppercase tracking-ultra opacity-40">45 Minutes</span>
+                        </div>
+                    </div>
+
+                    <div class="group flex flex-col md:flex-row justify-between items-start md:items-end border-b border-brand-gold/10 pb-8 hover:border-brand-gold transition-colors duration-500">
+                        <div class="max-w-md">
+                            <h3 class="font-display text-2xl mb-2 group-hover:text-brand-gold transition-colors">Beard Architecture</h3>
+                            <p class="text-sm text-brand-stone/50 font-light">Shaping and grooming using organic balms and precision trimming.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 text-right">
+                            <span class="text-brand-gold font-display text-xl">$45</span>
+                            <span class="block text-[8px] uppercase tracking-ultra opacity-40">30 Minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collection" class="bg-brand-base">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+                <div class="reveal parallax-wrap md:col-span-2 h-[400px] md:h-full">
+                    <img src="https://images.unsplash.com/photo-1621605815841-aa88c82b028c?auto=format&fit=crop&q=80" 
+                         class="parallax-img w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Precision cut">
+                    <div class="absolute bottom-10 left-10">
+                        <span class="text-[10px] tracking-ultra uppercase text-brand-stone">01 — The Fade</span>
+                    </div>
+                </div>
+                <div class="grid grid-rows-2 gap-4 h-full">
+                    <div class="reveal parallax-wrap h-[300px] md:h-full">
+                        <img src="https://images.unsplash.com/photo-1593702295094-22244243b1b6?auto=format&fit=crop&q=80" 
+                             class="parallax-img w-full h-full object-cover grayscale" alt="Hot towel service">
+                    </div>
+                    <div class="reveal parallax-wrap h-[300px] md:h-full">
+                        <img src="https://images.unsplash.com/photo-1512690118299-a91f179b20b0?auto=format&fit=crop&q=80" 
+                             class="parallax-img w-full h-full object-cover grayscale" alt="Luxury tools">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="flex flex-col items-center justify-center text-center">
+            <div class="max-w-3xl reveal">
+                <h2 class="font-display text-5xl md:text-7xl mb-10">Join the Circle.</h2>
+                <p class="text-brand-gold uppercase tracking-ultra text-xs mb-12">Reservations are recommended but not required.</p>
+                
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div class="border-b border-brand-gold/30 py-2">
+                        <label class="block text-[8px] uppercase tracking-ultra text-brand-gold mb-1">Full Name</label>
+                        <input type="text" placeholder="Johnathan Doe" class="bg-transparent w-full focus:outline-none placeholder:text-brand-stone/20">
+                    </div>
+                    <div class="border-b border-brand-gold/30 py-2">
+                        <label class="block text-[8px] uppercase tracking-ultra text-brand-gold mb-1">Email Address</label>
+                        <input type="email" placeholder="john@heritage.com" class="bg-transparent w-full focus:outline-none placeholder:text-brand-stone/20">
+                    </div>
+                    <div class="md:col-span-2 border-b border-brand-gold/30 py-2">
+                        <label class="block text-[8px] uppercase tracking-ultra text-brand-gold mb-1">Preferred Service</label>
+                        <select class="bg-transparent w-full focus:outline-none text-brand-stone/40">
+                            <option>The Royal Signature</option>
+                            <option>Traditional Blade Shave</option>
+                            <option>Beard Architecture</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 mt-8 text-center">
+                        <button type="submit" class="w-full md:w-auto bg-brand-gold text-brand-base px-16 py-5 text-[10px] uppercase tracking-ultra font-bold hover:bg-brand-stone transition-colors">
+                            Request Appointment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-base border-t border-brand-gold/10 py-20 px-6 md:px-20">
+        <div class="grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <div class="text-3xl font-display text-brand-gold mb-6">HERITAGE</div>
+                <p class="max-w-sm text-brand-stone/40 text-sm leading-relaxed">
+                    Elevating the standard of men's grooming through heritage, precision, and the relentless pursuit of excellence.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-brand-gold text-[10px] uppercase tracking-ultra mb-6">Locations</h4>
+                <ul class="text-sm space-y-4 text-brand-stone/60 font-light">
+                    <li>Savile Row, London</li>
+                    <li>Madison Ave, New York</li>
+                    <li>Place Vendôme, Paris</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-brand-gold text-[10px] uppercase tracking-ultra mb-6">Social</h4>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="instagram" size="18"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="facebook" size="18"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i data-lucide="twitter" size="18"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 pt-8 border-t border-brand-gold/5 flex flex-col md:flex-row justify-between text-[8px] uppercase tracking-[0.3em] text-brand-stone/30">
+            <span>&copy; 2026 Heritage Grooming Ltd.</span>
+            <div class="flex space-x-8 mt-4 md:mt-0">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Magnetic Button Effect
+        const magneticWraps = document.querySelectorAll('.magnetic-wrap');
+        
+        magneticWraps.forEach(wrap => {
+            const item = wrap.querySelector('.magnetic-item');
+            
+            wrap.addEventListener('mousemove', (e) => {
+                const rect = wrap.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                item.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+            });
+
+            wrap.addEventListener('mouseleave', () => {
+                item.style.transform = `translate(0, 0)`;
+            });
+        });
+
+        // Simple Parallax Effect
+        window.addEventListener('scroll', () => {
+            const parallaxImages = document.querySelectorAll('.parallax-img');
+            const scrolled = window.pageYOffset;
+
+            parallaxImages.forEach(img => {
+                const speed = 0.05;
+                const rect = img.parentElement.getBoundingClientRect();
+                const visible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (visible) {
+                    const offset = (window.innerHeight - rect.top) * speed;
+                    img.style.transform = `translateY(${offset}px) scale(1.2)`;
+                }
+            });
+        });
+
+        // Mobile Menu Toggle (Simplified)
+        const menuBtn = document.querySelector('nav button');
+        menuBtn.addEventListener('click', () => {
+            alert('Menu system would expand here in a multi-file production environment.');
+        });
+    </script>
+</body>
+</html>
